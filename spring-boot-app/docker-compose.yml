@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  postgresql-db:
+    image: postgres:10
+    container_name: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=DemoPa$$
+      - POSTGRES_USER=demouser
+      - POSTGRES_DB=demodb
+
+      
+  # *****************************
+  spring-boot-app:
+    restart: always
+    container_name: springboot-postgresql
+    image: springboot-postgresql
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresql-db
+    
+      
+volumes:
+  postgres-data:

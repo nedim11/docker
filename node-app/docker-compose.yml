@@ -1,0 +1,15 @@
+# Version of the Compose file specification.
+version: '3.8'
+# services are containers
+services:
+  # string 'rest-api' must match in the next 2 lines
+  rest-api:
+    container_name: rest-api
+    # our container is going to restart unless we explicitly stop it
+    restart: unless-stopped
+    # build in the root directory
+    build:
+      context: ./
+    # expose our port in format HOST:CONTAINER
+    ports:
+      - 8081:8081
