@@ -14,4 +14,4 @@ You can build both services by executing the line down below in each folder:
 Node service works very well and you can test it with (after running previous command):
 <br><code>curl http://localhost:8081/node/api/v1/result</code>
 
-Spring project does not work since I have had problems with connection to PosgreSQL DB.
+Spring project does not work since I have had problems with connection to PosgreSQL DB. But I think that Dockerfile and it's docker-compose.yml are OK.
